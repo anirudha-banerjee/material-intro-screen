@@ -56,11 +56,11 @@ android {
     }
 
     publish {
-        userOrg = 'tangoagency'
-        groupId = 'agency.tango.android'
+        userOrg = 'godslayer69'
+        groupId = 'godslayer69.android'
         artifactId = 'material-intro-screen'
         publishVersion = '0.0.5'
         desc = ''
-        website = 'https://github.com/TangoAgency/material-intro-screen'
+        website = 'https://github.com/anirudha-banerjee/material-intro-screen'
     }
 }
