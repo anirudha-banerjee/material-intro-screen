@@ -51,15 +51,23 @@
                 android:src="@drawable/ic_previous"
                 android:visibility="invisible" />
 
-            <ImageButton
+            <TextView
                 android:id="@+id/button_skip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="7dp"
                 android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:background="@drawable/button_background"
-                android:padding="16dp"
-                android:src="@drawable/ic_skip"
+                android:paddingLeft="15dp"
+                android:paddingStart="15dp"
+                android:paddingRight="15dp"
+                android:paddingEnd="15dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="@string/skip_btn_text"
+                android:textSize="14sp"
+                android:textColor="@color/white"
                 android:visibility="gone" />
 
             <agency.tango.materialintroscreen.widgets.InkPageIndicator
@@ -70,10 +78,10 @@
                 android:layout_marginBottom="16dp"
                 android:layout_weight="1"
                 app:animationDuration="320"
-                app:currentPageIndicatorColor="@android:color/white"
+                app:currentPageIndicatorColor="@color/pageIndicator"
                 app:dotDiameter="8dp"
                 app:dotGap="8dp"
-                app:pageIndicatorColor="@android:color/holo_red_light" />
+                app:pageIndicatorColor="@color/currentPageIndicator" />
 
             <ImageButton
                 android:id="@+id/button_next"

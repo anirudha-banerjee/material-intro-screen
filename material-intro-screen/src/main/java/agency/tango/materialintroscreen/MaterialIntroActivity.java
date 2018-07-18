@@ -20,6 +20,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import agency.tango.materialintroscreen.adapter.SlidesAdapter;
 import agency.tango.materialintroscreen.animations.ViewTranslationWrapper;
@@ -46,7 +47,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
     private InkPageIndicator pageIndicator;
     private SlidesAdapter adapter;
     private ImageButton backButton;
-    private ImageButton skipButton;
+    private TextView skipButton;
     private ImageButton nextButton;
     private CoordinatorLayout coordinatorLayout;
     private Button messageButton;
@@ -84,7 +85,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
         pageIndicator = (InkPageIndicator) findViewById(R.id.indicator);
         backButton = (ImageButton) findViewById(R.id.button_back);
         nextButton = (ImageButton) findViewById(R.id.button_next);
-        skipButton = (ImageButton) findViewById(R.id.button_skip);
+        skipButton = (TextView) findViewById(R.id.button_skip);
         messageButton = (Button) findViewById(R.id.button_message);
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout_slide);
         navigationView = (LinearLayout) findViewById(R.id.navigation_view);
