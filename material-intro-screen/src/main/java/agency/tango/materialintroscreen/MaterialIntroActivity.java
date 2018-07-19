@@ -49,7 +49,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
     private ImageButton backButton;
     private TextView skipButton;
     private ImageButton nextButtonImg;
-    private Button nextButtonBtn;
+    private TextView nextButtonBtn;
     private CoordinatorLayout coordinatorLayout;
     private Button messageButton;
     private LinearLayout navigationView;
@@ -58,6 +58,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
     private ArgbEvaluator argbEvaluator = new ArgbEvaluator();
 
     private ViewTranslationWrapper nextButtonTranslationWrapper;
+    private ViewTranslationWrapper nextImgButtonTranslationWrapper;
     private ViewTranslationWrapper backButtonTranslationWrapper;
     private ViewTranslationWrapper pageIndicatorTranslationWrapper;
     private ViewTranslationWrapper viewPagerTranslationWrapper;
@@ -85,7 +86,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
         viewPager = overScrollLayout.getOverScrollView();
         pageIndicator = (InkPageIndicator) findViewById(R.id.indicator);
         backButton = (ImageButton) findViewById(R.id.button_back);
-        nextButtonBtn = (Button) findViewById(R.id.button_next_btn);
+        nextButtonBtn = (TextView) findViewById(R.id.button_next_btn);
         nextButtonImg = (ImageButton) findViewById(R.id.button_next_img);
         skipButton = (TextView) findViewById(R.id.button_skip);
         messageButton = (Button) findViewById(R.id.button_message);
@@ -98,7 +99,8 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
         viewPager.setOffscreenPageLimit(2);
         pageIndicator.setViewPager(viewPager);
 
-        nextButtonTranslationWrapper = new NextButtonTranslationWrapper(nextButtonImg);
+        nextButtonTranslationWrapper = new NextButtonTranslationWrapper(nextButtonBtn);
+        nextImgButtonTranslationWrapper = new NextButtonTranslationWrapper(nextButtonImg);
         initOnPageChangeListeners();
 
         permissionNotGrantedClickListener = new PermissionNotGrantedClickListener(this, nextButtonTranslationWrapper);

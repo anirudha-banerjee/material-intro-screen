@@ -77,26 +77,33 @@
                 app:dotDiameter="8dp"
                 app:dotGap="8dp"
                 app:pageIndicatorColor="@color/currentPageIndicator" />
-
-            <ImageButton
-                android:id="@+id/button_next_img"
+            
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:paddingTop="5dp"
-                android:background="@color/transparent"
-                android:src="@drawable/ic_next" />
+                android:layout_gravity="bottom">
+                <ImageButton
+                    android:id="@+id/button_next_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingTop="9dp"
+                    android:background="@color/transparent"
+                    android:src="@drawable/ic_next"
+                    android:visibility="gone"/>
 
-            <Button
-                android:id="@+id/button_next_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:paddingTop="5dp"
-                android:background="@color/transparent"
-                android:text="@string/done_btn_text"
-                android:textColor="@color/white"
-                android:textSize="14sp"/>
+                <TextView
+                    android:id="@+id/button_next_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:paddingTop="9dp"
+                    android:background="@color/transparent"
+                    android:text="@string/done_btn_text"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:visibility="gone"/>
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 
