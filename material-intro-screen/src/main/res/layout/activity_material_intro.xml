@@ -38,7 +38,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="16dp"
+            android:paddingLeft="40dp"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:paddingRight="40dp">
 
             <ImageButton
                 android:id="@+id/button_back"
@@ -49,33 +54,23 @@
                 android:background="@drawable/button_background"
                 android:padding="16dp"
                 android:src="@drawable/ic_previous"
-                android:visibility="invisible" />
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/button_skip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="7dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp"
-                android:background="@drawable/button_background"
-                android:paddingLeft="15dp"
-                android:paddingStart="15dp"
-                android:paddingRight="15dp"
-                android:paddingEnd="15dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:layout_gravity="bottom"
+                android:paddingTop="9dp"
                 android:text="@string/skip_btn_text"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:visibility="gone" />
+                android:textSize="14sp" />
 
             <agency.tango.materialintroscreen.widgets.InkPageIndicator
                 android:id="@+id/indicator"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:layout_marginBottom="16dp"
                 android:layout_weight="1"
                 app:animationDuration="320"
                 app:currentPageIndicatorColor="@color/pageIndicator"
@@ -87,10 +82,9 @@
                 android:id="@+id/button_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginRight="16dp"
-                android:background="@drawable/button_background"
-                android:padding="16dp"
+                android:layout_gravity="bottom"
+                android:paddingTop="5dp"
+                android:background="@color/transparent"
                 android:src="@drawable/ic_next" />
         </LinearLayout>
     </LinearLayout>
