@@ -48,7 +48,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
     private SlidesAdapter adapter;
     private ImageButton backButton;
     private TextView skipButton;
-    private ImageButton nextButton;
+    private Button nextButton;
     private CoordinatorLayout coordinatorLayout;
     private Button messageButton;
     private LinearLayout navigationView;
@@ -84,7 +84,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
         viewPager = overScrollLayout.getOverScrollView();
         pageIndicator = (InkPageIndicator) findViewById(R.id.indicator);
         backButton = (ImageButton) findViewById(R.id.button_back);
-        nextButton = (ImageButton) findViewById(R.id.button_next);
+        nextButton = (Button) findViewById(R.id.button_next);
         skipButton = (TextView) findViewById(R.id.button_skip);
         messageButton = (Button) findViewById(R.id.button_message);
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout_slide);
@@ -368,13 +368,24 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
     private void nextButtonBehaviour(final int position, final SlideFragment fragment) {
         boolean hasPermissionToGrant = fragment.hasNeededPermissionsToGrant();
         if (hasPermissionToGrant) {
-            nextButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_next));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                nextButton.setBackground(ContextCompat.getDrawable(this, R.drawable.ic_next));
+            }
+            else {
+                nextButton.setBackgroundResource(R.drawable.ic_next);
+            }
             nextButton.setOnClickListener(permissionNotGrantedClickListener);
         } else if (adapter.isLastSlide(position)) {
-            nextButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_finish));
+            nextButton.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+            nextButton.setText(R.string.done_btn_text);
             nextButton.setOnClickListener(finishScreenClickListener);
         } else {
-            nextButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_next));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                nextButton.setBackground(ContextCompat.getDrawable(this, R.drawable.ic_next));
+            }
+            else {
+                nextButton.setBackgroundResource(R.drawable.ic_next);
+            }
             nextButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

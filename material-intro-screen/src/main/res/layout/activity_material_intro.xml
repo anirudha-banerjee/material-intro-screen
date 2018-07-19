@@ -78,14 +78,13 @@
                 app:dotGap="8dp"
                 app:pageIndicatorColor="@color/currentPageIndicator" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/button_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:paddingTop="5dp"
-                android:background="@color/transparent"
-                android:src="@drawable/ic_next" />
+                android:background="@color/transparent" />
         </LinearLayout>
     </LinearLayout>
 

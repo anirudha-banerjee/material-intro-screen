@@ -4,4 +4,5 @@
     <string name="please_grant_permissions">Please grant needed permissions</string>
     <string name="impassable_slide">Can\'t pass this slide.</string>
     <string name="skip_btn_text">SKIP</string>
+    <string name="done_btn_text">DONE</string>
 </resources>
