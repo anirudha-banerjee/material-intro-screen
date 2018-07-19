@@ -48,7 +48,8 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
     private SlidesAdapter adapter;
     private ImageButton backButton;
     private TextView skipButton;
-    private Button nextButton;
+    private ImageButton nextButtonImg;
+    private Button nextButtonBtn;
     private CoordinatorLayout coordinatorLayout;
     private Button messageButton;
     private LinearLayout navigationView;
@@ -84,7 +85,8 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
         viewPager = overScrollLayout.getOverScrollView();
         pageIndicator = (InkPageIndicator) findViewById(R.id.indicator);
         backButton = (ImageButton) findViewById(R.id.button_back);
-        nextButton = (Button) findViewById(R.id.button_next);
+        nextButtonBtn = (Button) findViewById(R.id.button_next_btn);
+        nextButtonImg = (ImageButton) findViewById(R.id.button_next_img);
         skipButton = (TextView) findViewById(R.id.button_skip);
         messageButton = (Button) findViewById(R.id.button_message);
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout_slide);
@@ -96,7 +98,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
         viewPager.setOffscreenPageLimit(2);
         pageIndicator.setViewPager(viewPager);
 
-        nextButtonTranslationWrapper = new NextButtonTranslationWrapper(nextButton);
+        nextButtonTranslationWrapper = new NextButtonTranslationWrapper(nextButtonImg);
         initOnPageChangeListeners();
 
         permissionNotGrantedClickListener = new PermissionNotGrantedClickListener(this, nextButtonTranslationWrapper);
@@ -368,25 +370,30 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
     private void nextButtonBehaviour(final int position, final SlideFragment fragment) {
         boolean hasPermissionToGrant = fragment.hasNeededPermissionsToGrant();
         if (hasPermissionToGrant) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            nextButtonBtn.setVisibility(GONE);
+            nextButtonImg.setVisibility(View.VISIBLE);
+            /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 nextButton.setBackground(ContextCompat.getDrawable(this, R.drawable.ic_next));
             }
             else {
                 nextButton.setBackgroundResource(R.drawable.ic_next);
-            }
-            nextButton.setOnClickListener(permissionNotGrantedClickListener);
+            }*/
+            nextButtonImg.setOnClickListener(permissionNotGrantedClickListener);
         } else if (adapter.isLastSlide(position)) {
-            nextButton.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
-            nextButton.setText(R.string.done_btn_text);
-            nextButton.setOnClickListener(finishScreenClickListener);
+            nextButtonImg.setVisibility(GONE);
+            nextButtonBtn.setVisibility(View.VISIBLE);
+            nextButtonBtn.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
+            nextButtonBtn.setOnClickListener(finishScreenClickListener);
         } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            nextButtonBtn.setVisibility(GONE);
+            nextButtonImg.setVisibility(View.VISIBLE);
+            /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 nextButton.setBackground(ContextCompat.getDrawable(this, R.drawable.ic_next));
             }
             else {
                 nextButton.setBackgroundResource(R.drawable.ic_next);
-            }
-            nextButton.setOnClickListener(new View.OnClickListener() {
+            }*/
+            nextButtonImg.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (fragment.canMoveFurther() == false) {
@@ -467,7 +474,8 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
         }
 
         private void tintButtons(ColorStateList color) {
-            ViewCompat.setBackgroundTintList(nextButton, color);
+            ViewCompat.setBackgroundTintList(nextButtonBtn, color);
+            ViewCompat.setBackgroundTintList(nextButtonImg, color);
             ViewCompat.setBackgroundTintList(backButton, color);
             ViewCompat.setBackgroundTintList(skipButton, color);
         }
