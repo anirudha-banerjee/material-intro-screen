@@ -14,6 +14,7 @@ public class ViewTranslationWrapper {
     private IViewTranslation enterTranslation;
     private IViewTranslation exitTranslation;
     private IViewTranslation defaultTranslation;
+    private IViewTranslation skipExitTranslation;
     private Animation errorAnimation;
 
     public ViewTranslationWrapper(View view) {
@@ -21,6 +22,7 @@ public class ViewTranslationWrapper {
 
         enterTranslation = new NoTranslation();
         exitTranslation = new NoTranslation();
+        skipExitTranslation = new NoTranslation();
         setErrorAnimation(0);
     }
 
@@ -43,6 +45,17 @@ public class ViewTranslationWrapper {
      */
     public ViewTranslationWrapper setExitTranslation(IViewTranslation exitTranslation) {
         this.exitTranslation = exitTranslation;
+        return this;
+    }
+
+    /**
+     * Set translation for skip button on last slide
+     *
+     * @param skipExitTranslation new translation
+     * @return ViewTranslationWrapper object
+     */
+    public ViewTranslationWrapper setSkipExitTranslation(IViewTranslation skipExitTranslation) {
+        this.skipExitTranslation = skipExitTranslation;
         return this;
     }
 
@@ -76,6 +89,10 @@ public class ViewTranslationWrapper {
 
     public void exitTranslate(float percentage) {
         exitTranslation.translate(view, percentage);
+    }
+
+    public void skipExitTranslate(float percentage) {
+        skipExitTranslation.translate(view, percentage);
     }
 
     public void defaultTranslate(float percentage) {

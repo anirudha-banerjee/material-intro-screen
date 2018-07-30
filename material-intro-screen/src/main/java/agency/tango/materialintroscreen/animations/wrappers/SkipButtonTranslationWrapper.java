@@ -11,8 +11,8 @@ public class SkipButtonTranslationWrapper extends ViewTranslationWrapper {
     public SkipButtonTranslationWrapper(View view) {
         super(view);
 
-        setEnterTranslation(new EnterDefaultTranslation())
-                .setDefaultTranslation(new DefaultPositionTranslation())
-                .setExitTranslation(new ExitDefaultTranslation());
+        setDefaultTranslation(new DefaultPositionTranslation())
+                .setSkipExitTranslation(new ExitDefaultTranslation());
+                //.setExitTranslation(new ExitDefaultTranslation());
     }
 }

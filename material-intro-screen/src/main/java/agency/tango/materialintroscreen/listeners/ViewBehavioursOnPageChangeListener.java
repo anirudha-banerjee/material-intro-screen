@@ -44,7 +44,12 @@ public class ViewBehavioursOnPageChangeListener implements CustomViewPager.OnPag
             for (ViewTranslationWrapper wrapper : wrappers) {
                 wrapper.exitTranslate(positionOffset);
             }
-        } else {
+        } else if (adapter.isLastButOneSlide(position)){
+            for (ViewTranslationWrapper wrapper : wrappers) {
+                wrapper.skipExitTranslate(positionOffset);
+            }
+        }
+        else {
             for (ViewTranslationWrapper wrapper : wrappers) {
                 wrapper.defaultTranslate(positionOffset);
             }

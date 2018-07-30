@@ -45,6 +45,10 @@ public class SlidesAdapter extends FragmentStatePagerAdapter {
         return position == getCount() - 1;
     }
 
+    public boolean isLastButOneSlide(int position) {
+        return  position == getCount() - 2;
+    }
+
     public boolean shouldFinish(int position) {
         return position == getCount() && getItem(getCount() - 1).canMoveFurther();
     }
