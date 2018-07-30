@@ -43,23 +43,26 @@
             android:paddingLeft="40dp"
             android:paddingStart="40dp"
             android:paddingEnd="40dp"
-            android:paddingRight="40dp">
+            android:paddingRight="40dp"
+            android:weightSum="3">
 
-            <ImageButton
+            <!--<ImageButton
                 android:id="@+id/button_back"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
                 android:background="@drawable/button_background"
                 android:padding="16dp"
                 android:src="@drawable/ic_previous"
-                android:visibility="gone" />
+                android:visibility="gone" />-->
 
             <TextView
                 android:id="@+id/button_skip"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_gravity="bottom"
                 android:paddingTop="9dp"
                 android:text="@string/skip_btn_text"

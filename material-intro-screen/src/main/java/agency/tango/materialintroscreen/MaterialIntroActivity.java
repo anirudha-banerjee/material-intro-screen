@@ -24,7 +24,6 @@ import android.widget.TextView;
 
 import agency.tango.materialintroscreen.adapter.SlidesAdapter;
 import agency.tango.materialintroscreen.animations.ViewTranslationWrapper;
-import agency.tango.materialintroscreen.animations.wrappers.BackButtonTranslationWrapper;
 import agency.tango.materialintroscreen.animations.wrappers.NextButtonTranslationWrapper;
 import agency.tango.materialintroscreen.animations.wrappers.PageIndicatorTranslationWrapper;
 import agency.tango.materialintroscreen.animations.wrappers.SkipButtonTranslationWrapper;
@@ -46,7 +45,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
     private SwipeableViewPager viewPager;
     private InkPageIndicator pageIndicator;
     private SlidesAdapter adapter;
-    private ImageButton backButton;
+    //private ImageButton backButton;
     private TextView skipButton;
     private ImageButton nextButtonImg;
     private TextView nextButtonBtn;
@@ -59,7 +58,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
 
     private ViewTranslationWrapper nextButtonTranslationWrapper;
     private ViewTranslationWrapper nextImgButtonTranslationWrapper;
-    private ViewTranslationWrapper backButtonTranslationWrapper;
+    //private ViewTranslationWrapper backButtonTranslationWrapper;
     private ViewTranslationWrapper pageIndicatorTranslationWrapper;
     private ViewTranslationWrapper viewPagerTranslationWrapper;
     private ViewTranslationWrapper skipButtonTranslationWrapper;
@@ -85,7 +84,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
         overScrollLayout = (OverScrollViewPager) findViewById(R.id.view_pager_slides);
         viewPager = overScrollLayout.getOverScrollView();
         pageIndicator = (InkPageIndicator) findViewById(R.id.indicator);
-        backButton = (ImageButton) findViewById(R.id.button_back);
+        //backButton = (ImageButton) findViewById(R.id.button_back);
         nextButtonBtn = (TextView) findViewById(R.id.button_next_btn);
         nextButtonImg = (ImageButton) findViewById(R.id.button_next_img);
         skipButton = (TextView) findViewById(R.id.button_skip);
@@ -106,7 +105,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
         permissionNotGrantedClickListener = new PermissionNotGrantedClickListener(this, nextButtonTranslationWrapper);
         finishScreenClickListener = new FinishScreenClickListener();
 
-        setBackButtonVisible();
+        //setBackButtonVisible();
 
         viewPager.post(new Runnable() {
             @Override
@@ -200,20 +199,23 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
      */
     @SuppressWarnings("unused")
     public void setSkipButtonVisible() {
-        backButton.setVisibility(GONE);
+        //backButton.setVisibility(GONE);
 
         skipButton.setVisibility(View.VISIBLE);
         skipButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (int position = viewPager.getCurrentItem(); position < adapter.getCount(); position++) {
+                //ToDo: fix this later; apply settings needed for project
+                /*for (int position = viewPager.getCurrentItem(); position < adapter.getCount(); position++) {
                     if (!adapter.getItem(position).canMoveFurther()) {
                         viewPager.setCurrentItem(position, true);
                         showError(adapter.getItem(position).cantMoveFurtherErrorMessage());
                         return;
                     }
                 }
-                viewPager.setCurrentItem(adapter.getLastItemPosition(), true);
+                viewPager.setCurrentItem(adapter.getLastItemPosition(), true);*/
+
+                performFinish();
             }
         });
     }
@@ -221,7 +223,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
     /**
      * Set back button visible
      */
-    public void setBackButtonVisible() {
+    /*public void setBackButtonVisible() {
         skipButton.setVisibility(GONE);
 
         backButton.setVisibility(View.VISIBLE);
@@ -231,16 +233,16 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
                 viewPager.setCurrentItem(viewPager.getPreviousItem(), true);
             }
         });
-    }
+    }*/
 
     /**
      * Hides any back button
      */
     @SuppressWarnings("unused")
-    public void hideBackButton() {
+    /*public void hideBackButton() {
         backButton.setVisibility(View.INVISIBLE);
         skipButton.setVisibility(View.GONE);
-    }
+    }*/
 
     /**
      * Get translation wrapper for next button
@@ -256,10 +258,10 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
      *
      * @return ViewTranslationWrapper
      */
-    @SuppressWarnings("unused")
+    /*@SuppressWarnings("unused")
     public ViewTranslationWrapper getBackButtonTranslationWrapper() {
         return backButtonTranslationWrapper;
-    }
+    }*/
 
     /**
      * Get translation wrapper for page indicator
@@ -319,7 +321,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
     private void initOnPageChangeListeners() {
         messageButtonBehaviourOnPageSelected = new MessageButtonBehaviourOnPageSelected(messageButton, adapter, messageButtonBehaviours);
 
-        backButtonTranslationWrapper = new BackButtonTranslationWrapper(backButton);
+        //backButtonTranslationWrapper = new BackButtonTranslationWrapper(backButton);
         pageIndicatorTranslationWrapper = new PageIndicatorTranslationWrapper(pageIndicator);
         viewPagerTranslationWrapper = new ViewPagerTranslationWrapper(viewPager);
         skipButtonTranslationWrapper = new SkipButtonTranslationWrapper(skipButton);
@@ -333,7 +335,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
 
         viewPager.addOnPageChangeListener(new ViewBehavioursOnPageChangeListener(adapter)
                 .registerViewTranslationWrapper(nextButtonTranslationWrapper)
-                .registerViewTranslationWrapper(backButtonTranslationWrapper)
+                //.registerViewTranslationWrapper(backButtonTranslationWrapper)
                 .registerViewTranslationWrapper(pageIndicatorTranslationWrapper)
                 .registerViewTranslationWrapper(viewPagerTranslationWrapper)
                 .registerViewTranslationWrapper(skipButtonTranslationWrapper)
@@ -478,7 +480,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
         private void tintButtons(ColorStateList color) {
             ViewCompat.setBackgroundTintList(nextButtonBtn, color);
             ViewCompat.setBackgroundTintList(nextButtonImg, color);
-            ViewCompat.setBackgroundTintList(backButton, color);
+            //ViewCompat.setBackgroundTintList(backButton, color);
             ViewCompat.setBackgroundTintList(skipButton, color);
         }
     }
