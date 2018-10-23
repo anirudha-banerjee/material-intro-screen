@@ -4,4 +4,6 @@
     <color name="currentPageIndicator">#FFFFFF</color>
     <color name="pageIndicator">#8affffff</color>
     <color name="white">#FFFFFF</color>
+    <color name="appGray">#616161</color>
+    <color name="colorOrange">#F79420</color>
 </resources>

@@ -59,7 +59,7 @@ android {
         userOrg = 'godslayer69'
         groupId = 'godslayer69.android'
         artifactId = 'material-intro-screen'
-        publishVersion = '0.0.5.7'
+        publishVersion = '0.0.6.1'
         desc = ''
         website = 'https://github.com/anirudha-banerjee/material-intro-screen'
     }

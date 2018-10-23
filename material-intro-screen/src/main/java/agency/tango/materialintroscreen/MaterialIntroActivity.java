@@ -1,6 +1,7 @@
 package agency.tango.materialintroscreen;
 
 import android.animation.ArgbEvaluator;
+import android.content.Context;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,6 +23,10 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.Locale;
+
+import agency.tango.materialintroscreen.Utils.MaterialIntroContextWrapper;
+import agency.tango.materialintroscreen.Utils.MaterialIntroSharedPreferences;
 import agency.tango.materialintroscreen.adapter.SlidesAdapter;
 import agency.tango.materialintroscreen.animations.ViewTranslationWrapper;
 import agency.tango.materialintroscreen.animations.wrappers.NextButtonTranslationWrapper;
@@ -69,6 +74,14 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
     private View.OnClickListener finishScreenClickListener;
 
     private SparseArray<MessageButtonBehaviour> messageButtonBehaviours = new SparseArray<>();
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        //Get language preference from shared prefs
+        MaterialIntroSharedPreferences sharedPrefs = MaterialIntroSharedPreferences.getInstance(base);
+        Locale languageType = new Locale(sharedPrefs.getSharedPrefsUserLanguagePref());
+        super.attachBaseContext(MaterialIntroContextWrapper.wrap(base, languageType));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
