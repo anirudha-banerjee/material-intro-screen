@@ -108,7 +108,7 @@ public class SlideFragment extends ParallaxFragment {
     }
 
     public String cantMoveFurtherErrorMessage() {
-        return getString(R.string.impassable_slide);
+        return getString(R.string.please_grant_permissions);
     }
 
     private void updateViewWithValues() {

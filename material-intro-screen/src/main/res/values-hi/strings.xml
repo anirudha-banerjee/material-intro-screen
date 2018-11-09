@@ -2,4 +2,5 @@
 <resources>
     <string name="skip_btn_text">छोड़ें</string>
     <string name="done_btn_text">आगे बढ़ो</string>
+    <string name="please_grant_permissions">Please grant needed permissions</string>
 </resources>

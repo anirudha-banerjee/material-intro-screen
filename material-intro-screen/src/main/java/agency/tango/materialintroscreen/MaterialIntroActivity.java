@@ -219,16 +219,16 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //ToDo: fix this later; apply settings needed for project
-                /*for (int position = viewPager.getCurrentItem(); position < adapter.getCount(); position++) {
+                for (int position = viewPager.getCurrentItem(); position < adapter.getCount(); position++) {
                     if (!adapter.getItem(position).canMoveFurther()) {
                         viewPager.setCurrentItem(position, true);
                         showError(adapter.getItem(position).cantMoveFurtherErrorMessage());
                         return;
                     }
                 }
-                viewPager.setCurrentItem(adapter.getLastItemPosition(), true);*/
+                viewPager.setCurrentItem(adapter.getLastItemPosition(), true);
 
-                performFinish();
+                //performFinish();
             }
         });
     }
